@@ -25,7 +25,8 @@ Enemy.prototype.render = function() {
 var Player = function () {
     this.x = 0;
     this.y = 0;
-    this.sprite = 'images/enemy-bug.png';
+    this.sprite = 'images/char-boy.png';
+    this.render = function() { ctx.drawImage(Resources.get(this.sprite), this.x, this.y)};
 };
 
 //  update() method to update playes position on boad
@@ -34,9 +35,9 @@ var Player = function () {
       // if any above true move player to beginning - start method
 
 
-//this methd renders player positin on the board. It is the same as the one povided for Enemy object
-Player.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+//this methd renders player positin on the board. It is the same as the one povided for Enemy object. ocommented out as moved inside the consructor instead of prototype
+/*Player.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);*/
 
 //   handleInput() method to handle keyboad input
 
