@@ -23,17 +23,17 @@ Enemy.prototype.render = function() {
 
 // My player class
 var Player = function () {
-    this.x = 0;
-    this.y = 0;
+    this.x = 202;
+    this.y = 415-10 ;
     this.sprite = 'images/char-boy.png';
     this.render = function() { ctx.drawImage(Resources.get(this.sprite), this.x, this.y)};
+
 };
 
-//  update() method to update playes position on boad
+//  update() method  update playes position on boad
    // check player position against enemies
    // check if player reached water (win)
       // if any above true move player to beginning - start method
-
 
 //this methd renders player positin on the board. It is the same as the one povided for Enemy object. ocommented out as moved inside the consructor instead of prototype
 /*Player.prototype.render = function() {
@@ -42,16 +42,16 @@ var Player = function () {
 //   handleInput() method to handle keyboad input
 Player.prototype.handleInput = function(key) {
     if (key === 'left') {
-        this.x -= 15;
+        if (this.x>0) {this.x -= 101}
     }
    else if (key === 'right') {
-         this.x += 15;
+         if (this.x <= 403) {this.x += 101}
     }
     else if (key === 'up') {
-         this.y -= 15;
+         if (this.y > -10)  {this.y -= 83;}
     }
     else if (key === 'down') {
-         this.y += 15;
+          if (this.y < 405) {this.y += 83}
     }
 }
 
