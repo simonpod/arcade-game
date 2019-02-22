@@ -40,7 +40,20 @@ var Player = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);*/
 
 //   handleInput() method to handle keyboad input
-
+Player.prototype.handleInput = function(key) {
+    if (key === 'left') {
+        this.x -= 15;
+    }
+   else if (key === 'right') {
+         this.x += 15;
+    }
+    else if (key === 'up') {
+         this.y -= 15;
+    }
+    else if (key === 'down') {
+         this.y += 15;
+    }
+}
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
