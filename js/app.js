@@ -4,7 +4,10 @@ var Enemy = function() {
     this.x = 0;
     this.y = 0;
     this.sprite = 'images/enemy-bug.png';
+
 };
+
+
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -35,7 +38,7 @@ var Player = function () {
    // check if player reached water (win)
       // if any above true move player to beginning - start method
 
-//this methd renders player positin on the board. It is the same as the one povided for Enemy object. ocommented out as moved inside the consructor instead of prototype
+//this method renders player position on the board. It is the same as the one provided for Enemy object. commented out as moved inside the constructor instead of prototype
 /*Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);*/
 
@@ -56,10 +59,15 @@ Player.prototype.handleInput = function(key) {
 }
 
 // Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-var allEnemies = [];
-// Place the player object in a variable called player
 var player = new Player();
+var enemyOne = new Enemy();
+var enemyTwo = new Enemy();
+var enemyThree = new Enemy();
+var enemyFour = new Enemy();
+// Place all enemy objects in an array called allEnemies
+var allEnemies = [enemyOne, enemyTwo, enemyThree, enemyFour];
+// Place the player object in a variable called player
+
 
 
 
