@@ -6,11 +6,10 @@ var Enemy = function() {
     this.speed = Math.random() * 400;
     this.sprite = 'images/enemy-bug.png';
     this.move = 101;
-    this.position =  this.y * Math.floor(Math.random() * 3 + 1);
-    this.randomPosition = function() {
-       return this.y * Math.floor(Math.random() * 3 + 1)};
+    this.position =  this.y * Math.floor(Math.random() * 3 + 1)
+    };
 
-};
+
 
 
 
@@ -28,9 +27,7 @@ Enemy.prototype.update = function(dt) {
     //if touched border move to initial x
     else {
       this.x = -101;
- //allEnemies.forEach(function(enemy) {
-// return this.y = this.randomPosition()},this); //needs debugging and changing as it doesnt make any sense
- // this.y = 68;  why Y doesnt work at all??
+	 this.position = this.y * Math.floor(Math.random() * 3 + 1);
 
     }
 
