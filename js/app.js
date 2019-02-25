@@ -6,7 +6,10 @@ var Enemy = function() {
     this.speed = Math.random() * 400;
     this.sprite = 'images/enemy-bug.png';
     this.move = 101;
-    this.position = this.y * Math.floor(Math.random() * 3 + 1);
+    this.position =  this.y * Math.floor(Math.random() * 3 + 1);
+    this.randomPosition = function() {
+       return this.y * Math.floor(Math.random() * 3 + 1)};
+
 };
 
 
@@ -24,8 +27,13 @@ Enemy.prototype.update = function(dt) {
     // change x  * speed *dt until touched border
     //if touched border move to initial x
     else {
-        this.x = -101;
+      this.x = -101;
+ //allEnemies.forEach(function(enemy) {
+// return this.y = this.randomPosition()},this); //needs debugging and changing as it doesnt make any sense
+ // this.y = 68;  why Y doesnt work at all??
+
     }
+
 
 };
 
@@ -48,9 +56,6 @@ var Player = function () {
    // check if player reached water (win)
       // if any above true move player to beginning - start method
 
-//this method renders player position on the board. It is the same as the one provided for Enemy object. commented out as moved inside the constructor instead of prototype
-/*Player.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);*/
 
 //   handleInput() method to handle keyboad input
 Player.prototype.handleInput = function(key) {
