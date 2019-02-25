@@ -3,6 +3,8 @@ var Enemy = function() {
     // enemy positin and sprite image
     this.x = 0;
     this.y = 68;
+    this.height = 50;
+    this.width = 50;
     this.speed = Math.random() * 400;
     this.sprite = 'images/enemy-bug.png';
     this.move = 101;
@@ -24,11 +26,20 @@ Enemy.prototype.update = function(dt) {
 
     }
     // change x  * speed *dt until touched border
-    //if touched border move to initial x
+    //if touched border move to initial x and randomize y 
     else {
       this.x = -101;
-	 this.position = this.y * Math.floor(Math.random() * 3 + 1);
+	  this.position = this.y * Math.floor(Math.random() * 3 + 1);
+    }
 
+  /*
+    Read Players y position, and make sure its not inside enemies area
+    Add another "OR" condition todo the same for players x
+    */
+    if((player.y >= this.position && player.y <= (this.width + this.position))){
+	console.log("this");
+	console.log(player.y);
+	console.log(this.position  + this.width);
     }
 
 
@@ -43,6 +54,8 @@ Enemy.prototype.render = function() {
 var Player = function () {
     this.x = 202;
     this.y = 415-10 ;
+    this.height = 50;
+    this.width = 50;
     this.sprite = 'images/char-boy.png';
     this.render = function() { ctx.drawImage(Resources.get(this.sprite), this.x, this.y)};
 
