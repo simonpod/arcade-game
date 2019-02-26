@@ -2,13 +2,13 @@
 var Enemy = function() {
     // enemy positin and sprite image
     this.x = 0;
-    this.y = 68;
+    this.y = 83;
     this.height = 50;
-    this.width = 50;
-    this.speed = Math.random() * 400;
+    this.width = 101;
+    this.speed = Math.random() * 500;
     this.sprite = 'images/enemy-bug.png';
     this.move = 101;
-    this.position =  this.y * Math.floor(Math.random() * 3 + 1)
+    this.position =  (this.y * Math.floor(Math.random() * 3 + 1))-20;
     };
 
 
@@ -26,21 +26,24 @@ Enemy.prototype.update = function(dt) {
 
     }
     // change x  * speed *dt until touched border
-    //if touched border move to initial x and randomize y 
+    //if touched border move to initial x and randomize y
     else {
       this.x = -101;
-	  this.position = this.y * Math.floor(Math.random() * 3 + 1);
+	  this.position = (this.y * Math.floor(Math.random() * 3 + 1))-20;
     }
 
-  /*
-    Read Players y position, and make sure its not inside enemies area
-    Add another "OR" condition todo the same for players x
-    */
-    if((player.y >= this.position && player.y <= (this.width + this.position))){
+
+    //collision logic
+
+
+    if (player.y >= this.position && player.y <= (this.height + this.position) && player.x >= this.x && player.x <= (this.width + this.x)){
 	console.log("this");
 	console.log(player.y);
-	console.log(this.position  + this.width);
-    }
+	console.log(this.position  + this.height);
+    player.x = 202;
+    player.y = 415-10 ;
+  //  else if
+ }
 
 
 };
@@ -54,17 +57,16 @@ Enemy.prototype.render = function() {
 var Player = function () {
     this.x = 202;
     this.y = 415-10 ;
-    this.height = 50;
-    this.width = 50;
+  //  this.height = 50;
+  //  this.width = 50;
     this.sprite = 'images/char-boy.png';
     this.render = function() { ctx.drawImage(Resources.get(this.sprite), this.x, this.y)};
 
 };
+//descoped- function implemented inside enemy Player.prototype.update = function(){
 
-//  update() method  update playes position on boad
-   // check player position against enemies
-   // check if player reached water (win)
-      // if any above true move player to beginning - start method
+//};
+
 
 
 //   handleInput() method to handle keyboad input
@@ -89,8 +91,11 @@ var enemyOne = new Enemy();
 var enemyTwo = new Enemy();
 var enemyThree = new Enemy();
 var enemyFour = new Enemy();
+var enemyFive = new Enemy();
+var enemySix = new Enemy();
+var enemySeven = new Enemy();
 // Place all enemy objects in an array called allEnemies
-var allEnemies = [enemyOne, enemyTwo, enemyThree, enemyFour];
+var allEnemies = [enemyOne, enemyTwo, enemyThree, enemyFour,enemyFive,enemySix,enemySeven];
 // Place the player object in a variable called player
 
 
