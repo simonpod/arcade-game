@@ -11,10 +11,6 @@ var Enemy = function() {
     this.position =  (this.y * Math.floor(Math.random() * 3 + 1))-20;
     };
 
-
-
-
-
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
@@ -35,14 +31,12 @@ Enemy.prototype.update = function(dt) {
 
     //collision logic
 
-
     if (player.y >= this.position && player.y <= (this.height + this.position) && player.x >= this.x && player.x <= (this.width + this.x)){
-	console.log("this");
-	console.log(player.y);
-	console.log(this.position  + this.height);
+	//console.log("this");
+	//console.log(player.y);
+	//console.log(this.position  + this.height);
     player.x = 202;
     player.y = 415-10 ;
-  //  else if
  }
 
 
@@ -57,15 +51,20 @@ Enemy.prototype.render = function() {
 var Player = function () {
     this.x = 202;
     this.y = 415-10 ;
-  //  this.height = 50;
-  //  this.width = 50;
     this.sprite = 'images/char-boy.png';
     this.render = function() { ctx.drawImage(Resources.get(this.sprite), this.x, this.y)};
 
 };
-//descoped- function implemented inside enemy Player.prototype.update = function(){
-
-//};
+// winning check
+ Player.prototype.update = function(){
+    if (player.y ==-10) {
+       setTimeout(function () {
+        alert('You won!')
+         player.x = 202;
+        player.y = 415-10 ;
+   },1);
+ }
+};
 
 
 
