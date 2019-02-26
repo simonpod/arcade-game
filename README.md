@@ -10,7 +10,7 @@
 This is a clone of a frogger game built with Udacity starter code and Object oriented JS techniques.
 
 
-## Contributing
+## Setup
 
 To install the game:
 1. either clone or download this repository
